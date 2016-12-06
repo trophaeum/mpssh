@@ -3,7 +3,7 @@ LD = gcc
 SSHPATH = `which ssh`
 SCPPATH = `which scp`
 CFLAGS = -Wall -DSSHPATH=\"$(SSHPATH)\" -DSCPPATH=\"$(SCPPATH)\"
-LDFLAGS =
+LDFLAGS = -s
 RM = /bin/rm -f
 BIN=/usr/local/bin
 
@@ -26,5 +26,5 @@ clean:
 install: all
 	strip $(PROG)
 	install -m 775 -d $(BIN)
-	install -m 751 -o root $(PROG) $(BIN)
+	install -m 751 $(PROG) $(BIN)
 
